@@ -1,17 +1,29 @@
 <dom-module id="style-var-parent">
     <style>
         :host{
-            --style-var-title-color: green;
+            --abc: green;
+        --ttt:{
+             color: #3094ed;
+         };
         }
 
         .warning{
-            --style-var-title-color:red;
+            --abc:red;
         }
+
+        .test{
+            color: var(--abc);
+            @apply(--ttt)
+        }
+
     </style>
     <template>
         <style-var title="This one is green."></style-var>
         <style-var title="This one is green too."></style-var>
         <style-var class="warning" title="This one is red."></style-var>
+
+
+        <p class="test">asdfsadfdsf</p>
     </template>
     <script>
         Polymer({
