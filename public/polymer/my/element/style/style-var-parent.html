@@ -1,22 +1,21 @@
 <dom-module id="style-var-parent">
     <style>
         :host{
-            padding: 4px;
-            background-color: gray;
+            --style-var-title-color: green;
         }
-        .title{
-            color: var(--style-var-parent-title-color);
+
+        .warning{
+            --style-var-title-color:red;
         }
     </style>
     <template>
-        <span class="title">{{title}}</span>
+        <style-var title="This one is green."></style-var>
+        <style-var title="This one is green too."></style-var>
+        <style-var class="warning" title="This one is red."></style-var>
     </template>
     <script>
         Polymer({
-            is: 'style-var-parent',
-            properties: {
-                title: String
-            }
+            is: 'style-var-parent'
         });
     </script>
 </dom-module>
