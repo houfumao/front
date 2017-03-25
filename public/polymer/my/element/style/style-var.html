@@ -1,0 +1,22 @@
+<dom-module id="style-var">
+    <style>
+        :host{
+            padding: 4px;
+            background-color: gray;
+        }
+        .title{
+            color: var(--style-var-title-color);
+        }
+    </style>
+    <template>
+        <span class="title">{{title}}</span>
+    </template>
+    <script>
+        Polymer({
+            is: 'style-var',
+            properties: {
+                title: String
+            }
+        });
+    </script>
+</dom-module>

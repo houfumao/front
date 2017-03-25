@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Foo(){
+        var a = function(){
+            var b = 'bbb'
+            console.log(b)
+        };
+        a.b='b';
+        a.c= function(){
+            console.log('c')
+        }
+        return a;
+    };
+    var f1 = new Foo();
+    var f2 = new Foo;
+    var f3 = Foo();
+    var f4 = Foo();
+    console.log(f1 === f2);//false
+
+    console.log(Foo.prototype.constructor === Foo);//true
+
+
+
+
+
+
+
+    function f(){
+        this.foo='d'
+    }
+    f.prototype.foo = "abc";
+    var obj = new f;
+    console.log(f.foo); //undefined
+    console.log(obj.foo); //abc
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿15:29 2016/1/27
+iron-component-page/iron-component-page.css
+修改了样式。
+
+paper-icon-button/paper-icon-button.html
+修改了样式。
+
+paper-styles/classes/global.html
+paper-styles/classes/typography.html
+paper-styles/demo.css
+paper-styles/typography.html
+修改了样式。
+
+paper-tabs/paper-tab.html
+修改了样式。
+paper-tabs/paper-tabs.html
+修改了样式,去掉了 class="flex"。
+<div id="tabsContainer" class="flex" on-track="_scroll" on-down="_down">变成
+<div id="tabsContainer" on-track="_scroll" on-down="_down">
+
+
+paper-button/paper-button.html
+修改了样式。
+
+iron-autogrow-textarea/iron-autogrow-textarea.html
+修改了样式。<textarea></textarea>增加样式"form-control"。
+
+paper-dialog-behavior/paper-dialog-common.css
+paper-dialog-behavior/paper-dialog-shared-styles.html
+修改了样式。
+
+
+bower_components\paper-button\paper-button.html 添加permission 控制
+
+//2016/04/26
+bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html //this.dialogElement = !!this.dialogElement ? this.dialogElement : this.parentNode;

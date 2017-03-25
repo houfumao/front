@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var myImage = (function(){
+        var imgNode = document.createElement("img");
+        document.body.appendChild(imgNode);
+        return {
+            setSrc: function(src) {
+                imgNode.src = src;
+            }
+        }
+    })();
+    // 代理模式
+    var ProxyImage = (function(){
+        var img = new Image();
+        img.onload = function(){
+            myImage.setSrc(this.src);
+        };
+        return {
+            setSrc: function(src) {
+                myImage.setSrc("http://img.lanrentuku.com/img/allimg/1212/5-121204193Q9-50.gif");
+                img.src = src;
+            }
+        }
+    })();
+
+    var ProxyImg = (function () {
+        var img = new Image();
+        img.onload = function () {
+            myImage.setSrc(this.src);
+        };
+        return {
+            setSrc: function (src) {
+                myImage.setSrc("temp.gif");
+                img.src = src;
+            }
+        }
+    })()
+    // 调用方式
+    ProxyImage.setSrc("https://img.alicdn.com/tps/i4/TB1b_neLXXXXXcoXFXXc8PZ9XXX-130-200.png");
+
+
+   var  timer = setTimeout(function(){
+    },2000);
+
+
+
+    // 计算乘法
+    var mult = function(){
+        var a = 1;
+        for(var i = 0,ilen = arguments.length; i < ilen; i+=1) {
+            a = a*arguments[i];
+        }
+        return a;
+    };
+    // 计算加法
+    var plus = function(){
+        var a = 0;
+        for(var i = 0,ilen = arguments.length; i < ilen; i+=1) {
+            a += arguments[i];
+        }
+        return a;
+    }
+    // 代理函数
+    var proxyFunc = function(fn) {
+        var cache = {};  // 缓存对象
+        return function(){
+            var args = Array.prototype.join.call(arguments,',');
+            if(args in cache) {
+                console.log(cache)
+                return cache[args];   // 使用缓存代理
+            }
+            return cache[args] = fn.apply(this,arguments);
+        }
+    };
+    var proxyMult = proxyFunc(mult);
+    console.log(proxyMult(1,2,3,4)); // 24
+    console.log(proxyMult.cache)
+    console.log(proxyMult(1,2,3,4)); // 缓存取 24
+
+    var proxyPlus = proxyFunc(plus);
+    console.log(proxyPlus(1,2,3,4));  // 10
+    console.log(proxyPlus(1,2,3,4));  // 缓存取 10
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<dom-module id="my-element">
+    <template>
+        <p>{{name}}</p>
+        <button on-click="handleClick">change by self</button>
+        <button id="fire">fire</button>
+
+
+
+        <div id="child-element">In local DOM!</div>
+        <div class="bg1">bgbgbgbgbg</div>
+        <div class="content-wrapper">
+            <content></content>
+        </div>
+    </template>
+
+    <style>
+        :host {
+            display: block;
+            border: 1px solid red;
+            margin: 30px;;
+        }
+
+        #child-element {
+            background: yellow;
+        }
+
+        .content-wrapper >::content .special {
+            background: #3094ed;
+        }
+    </style>
+    <script>
+        MyElement = Polymer({
+
+            is: 'my-element',
+            properties: {
+                name: {
+                    value: "default name",
+                    type: "String"
+                }
+            },
+
+            handleClick: function(){
+                this.setAttribute("name","name was set by 我自己");
+            },
+
+            created: function () {
+                console.log(this.localName + '#' + this.id + ' was created');
+            },
+
+            attached: function () {
+                console.log(this.localName + '#' + this.id + ' was attached');
+            },
+
+            detached: function () {
+                console.log(this.localName + '#' + this.id + ' was detached');
+            },
+
+            attributeChanged: function (name, type) {
+                console.log(this.localName + '#' + this.id + ' attribute ' + name +
+                        ' was changed to ' + this.getAttribute(name));
+            },
+
+            ready:function(){
+                console.log(this.localName + '#' + this.id + ' was ready');
+            },
+
+            factoryImpl: function(){
+                console.log(this.localName + '#' + this.id + ' was factoryImpl');
+            },
+            listeners:{
+                'fire.click': 'handleClick'
+            },
+
+            handleClick:function(e){
+                this.fire('fff',{'ddd':"i am fired"})
+            }
+        });
+    </script>
+</dom-module>

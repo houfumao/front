@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+    <button id="div">createSingleDiv</button>
+    <button id="iframe">createSingleIframe</button>
+
+</div>
+<script>
+    // 创建div
+    var createWindow = function () {
+        var div = document.createElement("div");
+        div.innerHTML = "我是弹窗内容";
+        div.style.display = 'none';
+        document.body.appendChild(div);
+        return div;
+    };
+    // 创建iframe
+    var createIframe = function () {
+        var iframe = document.createElement("iframe");
+        document.body.appendChild(iframe);
+        return iframe;
+    };
+    // 获取实例的封装代码
+    var getInstance = function (fn) {
+        var result;
+        return function () {
+            return result || (result = fn.call(this,arguments));
+        }
+    };
+
+
+    // 测试创建div
+    var createSingleDiv = getInstance(createWindow,'aaa');
+
+    console.log(createSingleDiv)
+    document.getElementById("div").onclick = function () {
+        var win = createSingleDiv("aaa");
+        var ccc = createSingleDiv("ddd");
+        console.log(ccc===win);
+        win.style.display = "block";
+    };
+    // 测试创建iframe
+    var createSingleIframe = getInstance(createIframe);
+    document.getElementById("iframe").onclick = function () {
+        var win = createSingleIframe();
+        win.src = "http://cnblogs.com";
+    };
+
+
+
+
+    var name = "The Window";
+    var object = {
+        name : "My Object",
+        getNameFunc : function(){
+            return function(){
+                return this.name;
+            };
+        }
+    };
+    console.log(object.getNameFunc()());
+
+
+    var name = "The Window";
+    var object = {
+        name : "My Object",
+        getNameFunc : function(){
+            var that = this;
+            return function(){
+                return that.name;
+            };
+        }
+    };
+    console.log(object.getNameFunc()());
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<dom-module id="style-test-parent">
+    <style>
+        /* Apply custom theme to toolbars */
+        :host {
+        --style-test-theme: {
+             background-color: #f7f7f7;
+             border-radius: 4px;
+             border: 1px solid gray;
+         };
+        --style-test-title-theme: {
+             color: green;
+         };
+        }
+
+        /* Make only toolbars with the .warning class red and bold */
+        .success{
+        --style:{
+             color: #3094ed;
+         }
+        }
+        .warning {
+        --style-test-title-theme: {
+             color: red;
+             font-weight: bold;
+         };
+        }
+
+    </style>
+    <template>
+        <style-test title="aaaaaaaaa"></style-test>
+        <style-test title="ggggggggggg"></style-test>
+        <style-test class="warning success" title="dddddddd."></style-test>
+        <style-test class="success" title="Tddddasdfsadfsdf."></style-test>
+
+    </template>
+    <script>
+        Polymer({
+            is: 'style-test-parent'
+        });
+    </script>
+</dom-module>

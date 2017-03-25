@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // 构造函数A
+    function A(name) {
+        this.name = name || 'a';
+
+    }
+
+    // 构造函数B
+    function B(name) {
+        this.name = name || 'b';
+    }
+    B.prototype.sayHello = function() {
+        console.log('Hello, my name is: ' + this.name);
+    };
+
+
+
+    function extend(Sub,Sup) {
+        var F = function(){};
+
+        F.prototype = Sup.prototype;
+
+        Sub.prototype = new F();
+
+        Sub.prototype.constructor = Sub;
+
+        Sub.sup = Sup.prototype;
+
+        if(Sup.prototype.constructor === Object.prototype.constructor) {
+            Sup.prototype.constructor = Sup;
+        }
+    }
+
+    // 子类继承父类原型方法
+    extend(A,B);
+    var a = new A();
+    a.sayHello();
+    console.log(a)
+
+</script>
+</body>
+</html>

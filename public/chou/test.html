@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="tt">
+     <p v-for="item in items">{{item.text}}</p>
+</div>
+<script src="../resource/vue/vue.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#tt',
+        data: {
+            items: [
+                {text: '巴士'},
+                {text: '快车'},
+                {text: '专车'},
+                {text: '顺风车'},
+                {text: '出租车'},
+                {text: '代驾'}
+            ]
+        },
+        methods: {
+
+        }
+    })
+</script>
+
+</body>
+</html>

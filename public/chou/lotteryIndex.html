@@ -1,0 +1,85 @@
+<div class="flex-main main-bg" ng-controller="LotteryIndexController as lotteryIndexCtrl" style="height:100%;display: flex;flex-direction: column">
+
+    <!--标题-->
+    <h1 class="title">黑网科技2017年年会抽�?</h1>
+    <!--抽奖、获取抽奖列表工具条-->
+    <div class="tools">
+        <div class="btn">
+            <span>数量�?</span>
+            <input id="numLottery" value="4"/>
+        </div>
+
+        <a class="btn inline-block" href="javascript:void(0)" id="draw" ng-click="lotteryIndexCtrl.openRollingDisplay()">抽奖</a>
+        <a class="btn inline-block" href="javascript:void(0)" id="showWinnersBtn" ng-click="lotteryIndexCtrl.openWinnersDisplay()">获奖列表</a>
+    </div>
+
+    <!--<div class="denglong left"></div>-->
+    <!--<div class="denglong right"></div>-->
+
+    <!--图片墙容�?-->
+    <div id="wks" class="clearfix" style="display: flex;flex-direction: column">
+        <div class="wks-wrap">
+            <div class="staff" ng-repeat=" staff in lotteryIndexCtrl.entities">
+                <div class="img-wrap">
+                    <img class="profile" src="{{lotteryIndexCtrl.smallImgBasePath + staff.pinyinName}}.png"/>
+                    <div class="name">{{staff.name}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--获奖列表-->
+    <div id="winnersList" ng-show="lotteryIndexCtrl.status == 3 ">
+        <div class="clearfix show-winners-wrap" style="margin-top:20px;padding-left:40px;">
+            <div class="winner" id="finalWinner{{$index}}" style="" ng-repeat="winner in lotteryIndexCtrl.winners">
+                <div class="profile">
+                    <img style="width:100%"  src="{{lotteryIndexCtrl.smallImgBasePath + winner.pinyinName}}.png"/>
+                </div>
+                <div class="name">{{winner.name}}</div>
+            </div>
+        </div>
+        <a id="okBtn2" class="l-btn" href="javascript:void(0)" ng-click="lotteryIndexCtrl.closeWinnersDisplay()"><span class="fa fa-close"></span></a>
+    </div>
+
+    <!--滚动抽奖�?-->
+    <div id="winnersWrap" class="clearfix" ng-show="lotteryIndexCtrl.status >= 2 && lotteryIndexCtrl.status < 3 ">
+        <div id="winners" class="clearfix">
+            <div class="winner" id="winner{{$index}}" ng-repeat="winner in lotteryIndexCtrl.rollingWinners">
+                <div class="profile">
+                    <img style="width:100%" src="{{lotteryIndexCtrl.smallImgBasePath + winner.pinyinName}}.png"/>
+                </div>
+                <div class="name">{{winner.name}}</div>
+            </div>
+            <div id="winnersMask"></div>
+        </div>
+
+        <a id="stopBtn" class="l-btn" href="javascript:void(0)" ng-click="lotteryIndexCtrl.stopRolling()" ng-show="lotteryIndexCtrl.status != 2.5">停止</a>
+        <a id="okBtn" class="l-btn" href="javascript:void(0)" ng-click="lotteryIndexCtrl.closeRollingDisplay()">
+            <span class="fa fa-close"></span>
+        </a>
+    </div>
+
+
+    <div id="focusProfile">
+        <div class="name"></div>
+        <div class="img-wrap">
+            <img src="">
+        </div>
+    </div>
+
+
+    <!--遮罩�?-->
+    <div id="mask"></div>
+
+    <!--背景音乐-->
+    <audio id="bgMusic" src="/management/lottery/asserts/sound/bg_short.mp3" type="audio/mp3" autoplay loop >
+    </audio>
+
+    <!--滚动抽奖的鼓�?-->
+    <audio id="guMusic" src="/management/lottery/asserts/sound/gu2.mp3" type="audio/mp3" loop>
+    </audio>
+
+    <!--选出获奖者的声音-->
+    <audio id="bingoMusic" src="/management/lottery/asserts/sound/bingo666.mp3" type="audio/mp3">
+    </audio>
+</div>

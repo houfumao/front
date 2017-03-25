@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,  height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="format-detection" content="telephone=no"/>
+    <!-- css-->
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/jiuGongChou.css">
+    <!--js-->
+    <script src="assets/js/jquery-1.8.1.min.js"></script>
+    <script src="assets/js/jquery.lbt.slide.1.0.js"></script>
+    <script src="assets/js/jquery.arctext.js"></script>
+    <script src="assets/js/jiuGongChou.js"></script>
+
+    <title>抽奖</title>
+</head>
+<body>
+<section class="cj2017">
+    <!-- 顶部banner-->
+    <section class="pr t-center over-hidden">
+        <img class="bg top-banner" src="assets/img/top-banner.jpg"/>
+        <div class="arc-text" id="arcTextWrap">
+            <p id="arcText1">
+                第1期活动时间：1月16号10:00至1月22号23:59
+            </p>
+            <p id="arcText2">
+                每天一转，购买价格由你的转盘结果而定
+            </p>
+        </div>
+    </section>
+
+    <!-- 宣传-->
+    <section class="floor floor1">
+        <div class="submain">
+            <p class="p1">
+                本期，名医汇小秘为大家送来了蜀中姜汤，生姜有驱寒防
+                感冒的作用，这个是速溶姜汤，6小包装，简单携带。
+            </p>
+            <p class="p2">
+                10G * 6袋
+            </p>
+            <p class="p3">
+                蜀中姜汤
+            </p>
+            <p class="p4 fs-2-2">
+                市场价:20元
+            </p>
+            <p class="p5">
+                我的专属价:?
+            </p>
+        </div>
+    </section>
+
+    <!-- 抽奖-->
+    <section class="floor floor2">
+        <div class="ftit pr">
+            <p class="pa ft-line"></p>
+            <span class="pr ft-word">转出你的专属价</span>
+        </div>
+        <!-- 抽奖-->
+        <div id="lottery" class="lottery-wrap">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td class="lottery-unit lottery-unit-0">
+                        <p class="name">现金抵用券</p>
+                        <img class="img" src="assets/img/yuan-10.png"/>
+                    </td>
+                    <td class="lottery-unit lottery-unit-1">
+                        <p class="name">9.9元购买</p>
+                        <img class="img" src="assets/img/cart.png"/>
+                    </td>
+                    <td class="lottery-unit lottery-unit-2">
+                        <p class="name">18元购买</p>
+                        <img class="img" src="assets/img/cart.png"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lottery-unit lottery-unit-7">
+                        <p class="name">0.01元购买</p>
+                        <img class="img" src="assets/img/cart.png"/>
+                    </td>
+                    <td class="btn-td"><a id="startClick" href="javascript:void(0)">开启转盘</a></td>
+                    <td class="lottery-unit lottery-unit-3">
+                        <p class="name">增加一次</p>
+                        <img class="img" src="assets/img/circle.png"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lottery-unit lottery-unit-6">
+                        <p class="name">非常遗憾</p>
+                        <img class="img" src="assets/img/cry.png"/>
+                    </td>
+                    <td class="lottery-unit lottery-unit-5">
+                        <p class="name">现金抵用券</p>
+                        <img class="img" src="assets/img/yuan-20.png"/>
+                    </td>
+                    <td class="lottery-unit lottery-unit-4">
+                        <p class="name">13元购买</p>
+                        <img class="img" src="assets/img/cart.png"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- 分享-->
+        <div class="t-center">
+            <a class="share-btn" href="javascript:void(0)">分享给好友</a>
+        </div>
+    </section>
+
+    <!-- 参与人数-->
+    <section class="floor floor3">
+        <div class="floor-main pr">
+            <div class="floor-title pa">
+                参与人数
+                <ul class="inline-block clearfix numbers">
+                    <li class="num">5</li>
+                    <li class="num">5</li>
+                    <li class="num">5</li>
+                    <li class="num">5</li>
+                    <li class="num">5</li>
+                </ul>
+                人
+            </div>
+            <div class="content">
+                <ul class="list" id="slider">
+                    <li class="row">
+                        <div>135****8888</div>
+                        <div>抽到10元抵用券</div>
+                    </li>
+                    <li class="row">
+                        <div>135****8888</div>
+                        <div>抽到10元抵用券</div>
+                    </li>
+                    <li class="row">
+                        <div>135****8888</div>
+                        <div>抽到10元抵用券</div>
+                    </li>
+                    <li class="row">
+                        <div>135****8888</div>
+                        <div>抽到10元抵用券</div>
+                    </li>
+                    <li class="row">
+                        <div>135****8888</div>
+                        <div>抽到10元抵用券</div>
+                    </li>
+                    <li class="row">
+                        <div>135****8888</div>
+                        <div>抽到10元抵用券</div>
+                    </li>
+                    <li class="row">
+                        <div>135****8888</div>
+                        <div>抽到10元抵用券</div>
+                    </li>
+                    <li class="row">
+                        <div>135****8888</div>
+                        <div>抽到10元抵用券</div>
+                    </li>
+                    <li class="row">
+                        <div>135****8888</div>
+                        <div>抽到10元抵用券</div>
+                    </li>
+                    <li class="row">
+                        <div>135****8888</div>
+                        <div>抽到10元抵用券</div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 互动规则-->
+    <section class="floor floor4">
+        <div class="floor-main pr">
+            <div class="floor-title pa">
+                活动规则
+            </div>
+            <div class="content">
+                <ul class="rules">
+                    <li class="row">
+                        1. 每个账号每天有1次免费机会；
+                    </li>
+                    <li class="row">
+                        2. 获奖后产品可在购物车查询，中奖产品活动价<br/>
+                        格当天有效，请及时下单购买。
+                    </li>
+                    <li class="row">
+                        3. 优惠券在【我的账号】查询，请在有效期前使用；
+                    </li>
+                    <li class="row">
+                        4. 对活动存有疑问，可点击页面右下角联系客服
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 底部-->
+    <section class="footer t-center">
+        <p>
+            关于名医汇健康商城 登录 注册
+        </p>
+        <div class="item-list">
+            <span class="item inline-block"><img class="success" src="assets/img/success.png"/>正品保证</span>
+            <span class="item inline-block"><img class="success" src="assets/img/success.png"/>隐私配送</span>
+            <span class="item inline-block"><img class="success" src="assets/img/success.png"/>专业药师</span>
+            <span class="item inline-block"><img class="success" src="assets/img/success.png"/>货到付款</span>
+        </div>
+
+        <p class="copyright">
+            互联网药品交易服务资格证书编号:京 C20140004<br/>
+            copyright 2010-2016 名医汇健康商城 版权所有
+        </p>
+    </section>
+</section>
+
+<!--弹窗1-福利价-->
+<div class="cover" id="cover1">
+    <div class="content subcover1">
+        <div class="bg"></div>
+        <div class="main">
+            <p class="tit">恭喜您获得福利奖品</p>
+            <div class="submain">
+                <div class="flex-box-r">
+                    <div>
+                        <img class="prize-pro" src="assets/img/prize-pro.png" />
+                    </div>
+                    <div class="fs-2-2">
+                       <p class="p1">蜀中姜汤</p>
+                        <p class="p2">市场价：20元</p>
+                        <p class="p3"><span class="fuli">福利价</span> ￥<span>13</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="t-center fs-2-4 mt-1">
+                <p>距离恢复原价仅剩：</p>
+                <p class="fs-3">05:34:55</p>
+                <a class="btn" href="javascript:void(0)">点击》 我的购物车查询</a>
+            </div>
+            <a class="close icon" href="javascript:void(0)"></a>
+        </div>
+    </div>
+</div>
+
+
+<!--弹窗2-没中奖-->
+<div class="cover" id="cover2">
+    <div class="content subcover2">
+        <div class="bg"></div>
+        <div class="main">
+            <p class="tit">非常遗憾</p>
+            <div class="submain">
+                <p class="word">运气不够，明天再约哦~</p>
+            </div>
+            <a class="close icon" href="javascript:void(0)"></a>
+        </div>
+    </div>
+</div>
+
+
+<!--弹窗3-增加一次抽奖机会-->
+<div class="cover" id="cover3">
+    <div class="content subcover3">
+        <div class="bg"></div>
+        <div class="main">
+            <p class="tit">增加一次抽奖机会</p>
+            <div class="submain">
+                <p class="word">这次没中，还有下次呢~</p>
+            </div>
+            <div class="t-center fs-2-4 mt-1">
+                <a class="btn" href="javascript:void(0)">再抽一次</a>
+            </div>
+            <a class="close icon" href="javascript:void(0)"></a>
+        </div>
+    </div>
+</div>
+
+<!--弹窗4-抽走抵用券-->
+<div class="cover" id="cover4">
+    <div class="content subcover4">
+        <div class="bg"></div>
+        <div class="main">
+            <p class="tit">恭喜亲翻到福利奖品</p>
+            <div class="submain t-center">
+                <p class="word">现金抵用券~</p>
+                <div>
+                    <img class="yuan" src="assets/img/yuan-10.png"/>
+                </div>
+            </div>
+            <div class="t-center fs-2-4 mt-1">
+                <a class="btn" href="javascript:void(0)">点击》 我的账户查询</a>
+            </div>
+            <a class="close icon" href="javascript:void(0)"></a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

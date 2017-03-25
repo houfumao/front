@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function order500(orderType, isPay, count) {
+        if (orderType == 1 && isPay == true) {
+            console.log("亲爱的用户，您中奖了100元红包了");
+        } else {
+            //我不知道下一个节点是谁,反正把请求往后面传递
+            return "nextSuccessor";
+        }
+    }
+    ;
+    function order200(orderType, isPay, count) {
+        if (orderType == 2 && isPay == true) {
+            console.log("亲爱的用户，您中奖了20元红包了");
+        } else {
+            //我不知道下一个节点是谁,反正把请求往后面传递
+            return "nextSuccessor";
+        }
+    }
+    ;
+    function orderNormal(orderType, isPay, count) {
+        // 普通用户来处理中奖信息
+        if (count > 0) {
+            console.log("亲爱的用户，您已抽到10元优惠卷");
+        } else {
+            console.log("亲爱的用户，请再接再厉哦");
+        }
+    }
+    // 下面需要编写职责链模式的封装构造函数方法
+    var Chain = function (fn) {
+        this.fn = fn;
+        this.successor = null;
+    };
+    Chain.prototype.setNextSuccessor = function (successor) {
+        this.successor = successor;
+    }
+    // 把请求往下传递
+    Chain.prototype.passRequest = function () {
+        var ret = this.fn.apply(this, arguments);
+        if (ret === 'nextSuccessor') {
+            return this.successor && this.successor.passRequest.apply(this.successor, arguments);
+        }
+        return ret;
+    }
+    //现在我们把3个函数分别包装成职责链节点：
+    var chainOrder500 = new Chain(order500);
+    var chainOrder200 = new Chain(order200);
+    var chainOrderNormal = new Chain(orderNormal);
+
+    // 然后指定节点在职责链中的顺序
+    chainOrder500.setNextSuccessor(chainOrder200);
+    chainOrder200.setNextSuccessor(chainOrderNormal);
+
+    //最后把请求传递给第一个节点：
+    chainOrder500.passRequest(1, true, 500);  // 亲爱的用户，您中奖了100元红包了
+    chainOrder500.passRequest(2, true, 500);  // 亲爱的用户，您中奖了20元红包了
+    chainOrder500.passRequest(3, true, 500);  // 亲爱的用户，您已抽到10元优惠卷
+    chainOrder500.passRequest(1, false, 0);   // 亲爱的用户，请再接再厉哦
+    chainOrder500.passRequest(1, false, 1);   // 亲爱的用户，您已抽到10元优惠卷
+
+
+    var a = function () {
+        console.log('a')
+    }
+    function b() {
+        console.log('b')
+    }
+</script>
+
+<script>
+    function f100(ftype, isPay, count) {
+        if (ftype == 1 && isPay) {
+            console.log('中了100')
+        } else {
+            return 'next'
+        }
+    }
+    function f20(ftype, isPay, count) {
+        if (ftype == 2 && isPay) {
+            console.log('中了20')
+        } else {
+            return 'next'
+        }
+    }
+    function fNormal(ftype, isPay, count) {
+        if (count>0) {
+            console.log('中了10')
+        } else {
+            console.log('啥玩意都没中')
+        }
+    }
+    var Chain = function(fn){
+        this.fn = fn;
+        this.nextF = null;
+    }
+    Chain.prototype.setNextF = function(nextF){
+        this.nextF = nextF
+    }
+    Chain.prototype.work = function(){
+        var res = this.fn.apply(this, arguments);
+        if(res == 'next'){
+            return this.nextF && this.nextF.work.apply(this.nextF, arguments);
+        }
+        return res;
+    }
+    var chain100 = new Chain(f100);
+    var chain20 = new Chain(f20);
+    var chainNormal = new Chain(fNormal);
+    chain100.setNextF(chain20);
+    chain20.setNextF(chainNormal);
+
+    chain100.work(1,true,500)
+    chain100.work(2,true,500)
+    chain100.work(3,true,500)
+    chain100.work(1,false,0)
+    chain100.work(1,false,1)
+
+
+</script>
+</body>
+</html>

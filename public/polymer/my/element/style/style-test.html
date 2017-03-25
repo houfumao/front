@@ -1,0 +1,26 @@
+<dom-module id="style-test">
+    <style>
+        :host{
+            padding: 4px;
+            background-color: gray;
+            /* apply a mixin*/
+        @apply(--style-test-theme);
+        }
+        .title{
+        @apply(--style);
+        @apply(--style-test-title-theme);
+
+        }
+    </style>
+    <template>
+        <span class="title">{{title}}</span>
+    </template>
+    <script>
+        Polymer({
+            is: 'style-test',
+            properties: {
+                title: String
+            }
+        });
+    </script>
+</dom-module>
